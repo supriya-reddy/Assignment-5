@@ -1,8 +1,21 @@
 
 1. Calculate the P Value for the test in Problem 2.
-Answer: 
-
-
 2. How do you test the proportions and compare against hypothetical props? Test Hypothesis: proportion
 of automatic cars is 40%.
 Answer:
+  
+                            X <- data.frame(row.names(mtcars), mtcars$am)
+                            X
+
+                            p0 = 0.4
+                            Total = nrow(X)
+                            aut = sum(mtcars$am)
+
+                            p_hat = aut / Total  # Sample proportion
+
+                            # Test statistic
+                            z = (p_hat - p0) / sqrt((p0*(1-p0))/Total)
+                            z
+                            prob = pnorm(z, 0, 1)
+                            prob #answer for (1) 
+ 
